@@ -2,18 +2,21 @@
 
 let check_box = {}
 $(document).ready(function () {
-  $('input:checkbox').click(function () {
-    if (this.checked) {
-      check_box[$(this).data('id')] = check_box[$(this).data('name')];
+  $('input:checkbox').change(function () {
+    if ($(this).is(':check_box')) {
+      check_box[$(this).data('id')] = $(this).data('name');
     } else {
       delete check_box[$(this).data('id')];
     }
-    $('div.amenities h4').html(function () {
-      let list_updated = [];
-      Object.keys(check_box).forEach(function (k) {
-        list_updated.push(check_box[k]);
-      });
-      return (list_updated);
+  })
+  $('div.amenities h4').html(function () {
+    let listUp = [];
+    Object.keys(check_box).forEach(function (key) {
+      listUp.push(check_box[key]);
     });
+    if (listUp.length > 0) {
+      return $('div.amenities h4').text(listUp.join(', '));;
+    }
+    return ('empty;')
   });
 });
