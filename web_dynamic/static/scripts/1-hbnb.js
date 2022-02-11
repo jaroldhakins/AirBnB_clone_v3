@@ -8,7 +8,7 @@ $(document).ready(function () {
     } else {
       delete check_box[$(this).attr('data-id')]
     }
-    let listUp = [] = Object.values(check_box);
+    let listUp = Object.values(check_box);
     if (listUp.length > 0) {
       $('div.amenities h4').text(listUp).join(', ');
     }
