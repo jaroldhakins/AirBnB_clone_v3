@@ -1,15 +1,3 @@
-// Request and modify the style by jQuery
-
-const url = 'http://0.0.0.0:5001/api/v1/status/';
-$.get(url, function (data, status) {
-  console.log(data);
-  if (data.status === 'OK') {
-    $('div#api_status').addClass(available);
-  } else {
-    $('div#api_status').removeClass(available);
-  }
-});
-
 // Listen for changes on each input checkbox tag
 
 $(document).ready(function () {
@@ -27,3 +15,16 @@ $(document).ready(function () {
     $('div.amenities h4').html('&nbsp;');
   });
 });
+
+// Request and modify the style by jQuery
+
+const url = 'http://0.0.0.0:5001/api/v1/status/';
+$.get(url, function (data, status) {
+  console.log(data);
+  if (data.status === 'OK') {
+    $('div#api_status').addClass('available');
+  } else {
+    $('div#api_status').removeClass('available');
+  }
+});
+
